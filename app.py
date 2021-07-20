@@ -30,7 +30,7 @@ def main():
 
         # Get the model's prediction
         #prediction = model.predict(input_variables)[0]
-        prediction = 1000
+        prediction = 1001
 
         # Render the form again, but add in the prediction and remind user
         # of the values they input before
