@@ -18,26 +18,34 @@ def main():
 
     if flask.request.method == 'POST':
         # Extract the input
-        temperature = flask.request.form['temperature']
-        humidity = flask.request.form['humidity']
-        windspeed = flask.request.form['windspeed']
+        fixedAcidity = flask.request.form['fixed-acidity']
+        volatileAcidity = flask.request.form['volatile-acidity']
+        citricAcid = flask.request.form['citric-acid']
+
+        residualSugar = flask.request.form['residual-sugar']
+        chlorides = flask.request.form['chlorides']
+        freeSulfur = flask.request.form['free-sulfur']
+
+        totalSulfur = flask.request.form['total-sulfur']
+        density = flask.request.form['density']
+        ph = flask.request.form['ph']
+
+        sulphates = flask.request.form['sulphates']
+        alcohol = flask.request.form['alcohol']
 
         # Make DataFrame for model
-        input_variables = pd.DataFrame([[temperature, humidity, windspeed]],
-                                       columns=['temperature', 'humidity', 'windspeed'],
-                                       dtype=float,
-                                       index=['input'])
+        input_variables = [[fixedAcidity, volatileAcidity, citricAcid, residualSugar, chlorides, freeSulfur, totalSulfur, density, ph, sulphates, alcohol]]
 
         # Get the model's prediction
-        #prediction = model.predict(input_variables)[0]
-        prediction = 1001
+        prediction = model.predict(input_variables)[0]
+        #prediction = 1001
 
         # Render the form again, but add in the prediction and remind user
         # of the values they input before
         return flask.render_template('main.html',
-                                     original_input={'Temperature':temperature,
-                                                     'Humidity':humidity,
-                                                     'Windspeed':windspeed},
+                                     original_input={'Fixed Acidity':fixedAcidity,
+                                                     'Volatile Acidity':volatileAcidity,
+                                                     'Citric Acid':citricAcid},
                                      result=prediction,
                                      )
 

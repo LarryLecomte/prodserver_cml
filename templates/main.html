@@ -17,14 +17,38 @@ form {
 <form action="{{ url_for('main') }}" method="POST">
     <fieldset>
         <legend>Input values:</legend>
-        Temperature:
-        <input name="temperature" type="number" required>
+        Fixed acidity:
+        <input name="fixed-acidity" type="number" step=0.1 required>
         <br>
-        <br> Humidity:
-        <input name="humidity" type="number" required>
+        <br> Volatile acidity:
+        <input name="volatile-acidity" type="number" step=0.001 required>
         <br>
-        <br> Windspeed:
-        <input name="windspeed" type="number" required>
+        <br> Citric acid:
+        <input name="citric-acid" type="number" step=0.01 required>
+        <br>
+        <br> Residual sugar:
+        <input name="residual-sugar" type="number" step=0.01 required>
+        <br>
+        <br> Chlorides:
+        <input name="chlorides" type="number" step=0.001 required>
+        <br>
+        <br> Free sulfur dioxide:
+        <input name="free-sulfur" type="number" required>
+        <br>
+        <br> Total sulfur dioxide:
+        <input name="total-sulfur" type="number" required>
+        <br>
+        <br> Density:
+        <input name="density" type="number" step=0.0001 required>
+        <br>
+        <br> Ph:
+        <input name="ph" type="number" step=0.01 required>
+        <br>
+        <br> Sulphates:
+        <input name="sulphates" type="number" step=0.01 required>
+        <br>
+        <br> Alcohol:
+        <input name="alcohol" type="number" step=0.1 required>
         <br>
         <br>
         <input type="submit">
